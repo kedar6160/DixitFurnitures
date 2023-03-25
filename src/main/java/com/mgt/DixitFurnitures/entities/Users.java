@@ -7,8 +7,13 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.NamedQuery;
 
 import java.io.Serializable;
+
+@NamedQuery(name = "Users.findByEmailId", query = "select u from Users u where u.email=:email")
+
+
 
 @Data
 @DynamicUpdate
@@ -29,6 +34,11 @@ public class Users implements Serializable {
     private String email;
 
     private String password;
+
+    private String status;
+
+    private String role;
+
 
 
 
